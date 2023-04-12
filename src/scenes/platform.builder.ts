@@ -1,15 +1,12 @@
 import Phaser from "phaser";
 
-type Physic = Phaser.Physics.Arcade.ArcadePhysics
+type Platform = Phaser.Physics.Arcade.StaticGroup;
 export class PlatformBuilder{
     private _assets ?: string;
-    private _platform ?: Phaser.Physics.Arcade.StaticGroup;
-    constructor(protected physic : Physic) {
+    constructor(protected _platform ?: Platform) {
     }
-    static clone(physic : Physic) {
-        const instance = new PlatformBuilder(physic);
-        instance._platform = physic.add.staticGroup();
-        return instance
+    static clone(physic : Platform) {
+        return new PlatformBuilder(physic);
     }
 
     setAssets(assets : string) {
@@ -23,6 +20,7 @@ export class PlatformBuilder{
     }
 
     build() {
+        this._platform?.refresh()
         return this._platform;
     }
 }
