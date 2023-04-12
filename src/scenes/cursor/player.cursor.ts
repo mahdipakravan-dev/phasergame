@@ -24,9 +24,9 @@ export class PlayerCursor extends CursorHandler{
             player.anims.play('turn');
         }
 
-        if (cursors.up.isDown && player.body.touching.down)
+        if (cursors.up.isDown)
         {
-            player.setVelocityY(-330);
+            player.setVelocityY(-200);
         }
     }
 }
