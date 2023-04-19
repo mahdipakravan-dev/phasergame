@@ -14,5 +14,6 @@ else
   yarn build
 
   mv dist html
+  rm -rf /var/www/game.mahdipakravan.ir/html
   mv ./html /var/www/game.mahdipakravan.ir/
 fi
